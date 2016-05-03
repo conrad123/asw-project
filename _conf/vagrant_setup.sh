@@ -72,11 +72,6 @@ echo "Migrations completed."
 sudo su - vagrant /bin/bash -c "source /usr/local/bin/virtualenvwrapper.sh;cd ${PROJECT_DIR};workon site;cp -r /home/vagrant/site/src/* /home/vagrant/site/prova;deactivate;"
 
 ##
-#	Running server at localhost:8080
-##
-# sudo su - vagrant /bin/bash -c "source /usr/local/bin/virtualenvwrapper.sh;cd ${PROJECT_DIR};workon site;./manage.py runserver 0.0.0.0:8080;deactivate;"
-
-##
 #	Setup is complete.
 ##
 echo ""

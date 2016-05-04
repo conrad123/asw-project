@@ -55,21 +55,10 @@ sudo su - vagrant /bin/bash -c "source /usr/local/bin/virtualenvwrapper.sh;cd ${
 sudo su - vagrant /bin/bash -c "source /usr/local/bin/virtualenvwrapper.sh;cd ${PROJECT_DIR};workon site;pip install -r requirements.txt;deactivate;"
 
 ##
-#	Creating django project
-##
-sudo su - vagrant /bin/bash -c "source /usr/local/bin/virtualenvwrapper.sh;cd ${PROJECT_DIR};workon site;django-admin.py startproject prova .;deactivate;"
-echo "Django application created."
-
-##
 #	Database migrations
 ##
 sudo su - vagrant /bin/bash -c "source /usr/local/bin/virtualenvwrapper.sh;cd ${PROJECT_DIR};workon site;./manage.py migrate;deactivate;"
 echo "Migrations completed."
-
-##
-#	Copying source code in project folder
-##
-sudo su - vagrant /bin/bash -c "source /usr/local/bin/virtualenvwrapper.sh;cd ${PROJECT_DIR};workon site;cp -r /home/vagrant/site/src/* /home/vagrant/site/prova;deactivate;"
 
 ##
 #	Setup is complete.

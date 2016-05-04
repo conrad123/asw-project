@@ -19,5 +19,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    url(r'^gestione-film/', 'prova.views.gestione_film_handler'),
+    url(r'^inserisci-film/', 'prova.views.inserisci_film_handler'),
     url(r'', 'prova.views.index'),
 ]

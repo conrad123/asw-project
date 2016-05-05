@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <title></title>
+	</head>
+	<body>
+		<h1>Inserisci Genere</h1>
+		<h3>Form non valida</h3>
+		<form action="/salva-genere/" method="post">
+		   {% csrf_token %}
+		   <label for="titolo">Titolo: </label>
+		   {{ form.titolo }}
+		   <input type="submit" value="OK">
+		</form>
+	</body>
+</html>

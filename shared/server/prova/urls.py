@@ -20,7 +20,10 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^gestione-film/', 'prova.views.gestione_film_handler'),
+    url(r'^gestione-generi/', 'prova.views.gestione_generi_handler'),
+    url(r'^inserisci-genere/', 'prova.views.inserisci_genere_handler'),
     url(r'^inserisci-film/', 'prova.views.inserisci_film_handler'),
     url(r'^salva-film/', 'prova.views.salva_film_handler'),
+    url(r'^salva-genere/', 'prova.views.salva_genere_handler'),
     url(r'', 'prova.views.index'),
 ]

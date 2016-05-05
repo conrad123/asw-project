@@ -1,20 +1,27 @@
 # -*- coding: utf-8 -*-
-from django.http import HttpResponse
-from django.template import Context,loader
+from django.http import HttpResponse,HttpResponseRedirect
+from django.shortcuts import render
+from prova.forms import SalvaFilmForm
 from prova.models import Film
 
 
 def index(request):
-    template = loader.get_template('index.html')
-    return HttpResponse(template.render())
+    return render(request,'index.html')
 
 
 def gestione_film_handler(request):
-    template = loader.get_template('gestione_film_main_page.html')
-    return HttpResponse(template.render())
+    return render(request,'gestione_film_main_page.html')
 
 
 def inserisci_film_handler(request):
-    template = loader.get_template('inserisci_film.html')
-    film = Film.create("Pulp Fiction","Quentin Taratino")
-    return HttpResponse(template.render())
+    return render(request,'inserisci_film.html')
+
+
+def salva_film_handler(request):
+	if request.method == 'POST':
+		form = SalvaFilmForm(request.POST)
+		if form.is_valid():
+			return HttpResponseRedirect('/film-salvato.html/')
+	else:
+		form = SalvaFilmForm()
+	return render(request,'inserisci_film.html',{'form': form})

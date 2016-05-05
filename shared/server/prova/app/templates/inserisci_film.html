@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-<h1>Inserisci Film</h1>
- <h3>Compila la form</h3>
- <form action="demo_form.asp">
-     Titolo: <input type="text" name="titolo"><br>
-     Regista: <input type="text" name="regista"><br>
-     Anno: <input type="number" name="anno">
-     <input type="submit" value="Submit">
-</form>
-
-</body>
+	<head>
+	    <meta charset="UTF-8">
+	    <title></title>
+	</head>
+	<body>
+		<h1>Inserisci Film</h1>
+		<h3>Compila la form</h3>
+		<form action="/salva-film/" method="post">
+			<label for="titolo">Titolo: </label>
+		    <input id="titolo" type="text" name="titolo">
+		    <label for="regista">Regista: </label>
+		    <input id="regista" type="text" name="regista">
+		    {% csrf_token %}
+		    {{ form }}
+		    <input type="submit" value="Submit" />
+		</form>
+	</body>
 </html>

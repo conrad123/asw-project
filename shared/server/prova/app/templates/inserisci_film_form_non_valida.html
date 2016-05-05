@@ -6,13 +6,13 @@
 	</head>
 	<body>
 		<h1>Inserisci Film</h1>
-		<h3>Compila la form</h3>
+		<h3>Form non valida</h3>
 		<form action="/salva-film/" method="post">
-			{% csrf_token %}
+		   {% csrf_token %}
 		   <label for="titolo">Titolo: </label>
-		   <input id="titolo" type="text" name="titolo">
+		   {{ form.titolo }}
 		   <label for="regista">Regista: </label>
-		   <input id="regista" type="text" name="regista">
+		   {{ form.regista }}
 		   <input type="submit" value="OK">
 		</form>
 	</body>

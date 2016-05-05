@@ -21,7 +21,9 @@ def salva_film_handler(request):
 	if request.method == 'POST':
 		form = SalvaFilmForm(request.POST)
 		if form.is_valid():
-			return HttpResponseRedirect('/film-salvato.html/')
+			form_fields = form.cleaned_data
+			film = Film.create(form_fields['titolo'],form_fields['regista'])
+			return render(request,'film_salvato.html',{'form_fields': form_fields})
 	else:
 		form = SalvaFilmForm()
-	return render(request,'inserisci_film.html',{'form': form})
+	return render(request,'inserisci_film_form_non_valida.html',{'form': form})

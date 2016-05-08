@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Inserisci Film</title>
+	</head>
+	<body>
+		<h1>Inserisci Film</h1>
+		<h3>Compila la form</h3>
+		<form action="/salva-film/" method="post">
+			{% csrf_token %}
+			<label for="titolo">Titolo: </label>
+			<input id="titolo" type="text" name="titolo">
+			<label for="regista">Regista: </label>
+        	<input id="regista" type="text" name="regista">
+        	<label for="generi">Genere: </label>
+        	<select name="generi">
+				{% for genere in generi %}
+					<option value="{{ genere.nome }}">{{ genere.nome }}</option>
+				{% endfor %}
+			</select>
+			<input type="submit" value="OK">
+		</form>
+	</body>
+</html>

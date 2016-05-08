@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Inserisci Genere</title>
+	</head>
+	<body>
+		<h1>Inserisci genere</h1>
+		<form action="/salva-genere/" method="post">
+			{% csrf_token %}
+			<label for="nome">Nome: </label>
+			<input id="nome" type="text" name="nome">
+			<input type="submit" value="OK">
+		</form>
+	</body>
+</html>

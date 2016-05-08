@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-	    <meta charset="UTF-8">
-	    <title></title>
+		<meta charset="UTF-8">
+		<title>Film Salvato</title>
 	</head>
 	<body>
 		<h1>Film inserito correttamente</h1>
-		<h3>{{ form_fields.titolo }}, {{ form_fields.regista }}</h3>
+		<h3>{{ form_fields.titolo }}, {{ form_fields.regista }}, {{ genere }}</h3>
 		<a href="/">Home</a>
+		<br>
 		<a href="/inserisci-film/">Inserisci un altro film</a>
 	</body>
 </html>

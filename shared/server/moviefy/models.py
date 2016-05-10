@@ -1,3 +1,4 @@
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
 
@@ -14,10 +15,11 @@ class Genere(models.Model):
 class Film(models.Model):
     titolo = models.CharField(max_length=30)
     regista = models.CharField(max_length=30)
+    anno = models.IntegerField(validators=[MaxValueValidator(99999), MinValueValidator(1890)])
     genere = models.ForeignKey(Genere, on_delete=models.CASCADE)
 
     @classmethod
-    def create(cls,titolo,regista,genere):
-        film = cls(titolo=titolo,regista=regista,genere=genere)
+    def create(cls,titolo,regista,anno,genere):
+        film = cls(titolo=titolo,regista=regista,anno=anno,genere=genere)
         film.save()
         return film

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Catalogo Film</title>
+	</head>
+	<body>
+		<h1>Catalogo Film</h1>
+		{% for genere in generi %}
+			<h2>{{ genere.nome }}</h2>
+			{% for film in films %}
+				<ul>
+				{% if film.genere.nome == genere.nome %}
+					<li>{{ film.titolo }}, {{ film.regista }}</li>
+				{% endif %}
+				</ul>
+			{% endfor %}
+		{% endfor %}
+		<form action="/filtra-catalogo/" method="post">
+			{% csrf_token %}
+			<label for="generi">Filtra per: </label>
+			<select name="generi">
+				{% for genere in generi %}
+					<option value="{{ genere.nome }}">{{ genere.nome }}</option>
+				{% endfor %}
+			</select>
+			<input type="submit" value="OK">
+		</form>
+		<br>
+		<a href="/">Home</a>
+	</body>
+</html>

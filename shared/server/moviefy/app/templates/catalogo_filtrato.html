@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Catalogo Film</title>
+	</head>
+	<body>
+		<h1>Catalogo Film ({{ genere }})</h1>
+		{% for film in films %}
+			<ul>
+				<li>{{ film.titolo }}, {{ film.regista }}</li>
+			</ul>
+		{% endfor %}
+		<form action="/filtra-catalogo/" method="post">
+			{% csrf_token %}
+			<label for="generi">Filtra per: </label>
+			<select name="generi">
+				{% for genere in generi %}
+					<option value="{{ genere.nome }}">{{ genere.nome }}</option>
+				{% endfor %}
+			</select>
+			<input type="submit" value="OK">
+		</form>
+		<br>
+		<a href="/catalogo-film/">Catalogo Completo</a>
+		<br>
+		<a href="/">Home</a>
+	</body>
+</html>

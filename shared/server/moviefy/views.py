@@ -24,7 +24,7 @@ def salva_film_handler(request):
         if form.is_valid():
             form_fields = form.cleaned_data
             genere = request.POST.get('generi')
-            film = Film.create(form_fields['titolo'],form_fields['regista'], Genere.objects.get(nome=genere))
+            film = Film.create(form_fields['titolo'],form_fields['regista'],form_fields['anno'], Genere.objects.get(nome=genere))
             return render(request,'film_salvato.html',{'form_fields': form_fields, 'genere': genere})
     else:
         form = SalvaFilmForm()
@@ -50,3 +50,17 @@ def salva_genere_handler(request):
     else:
         form = SalvaGenereForm()
     return render(request,'inserisci_genere_form_non_valida.html',{'form': form})
+
+
+def catalogo_film_handler(request):
+    films = Film.objects.all()
+    generi = Genere.objects.all()
+    return render(request,'catalogo_film.html',{'generi': generi, 'films': films})
+
+
+def filtra_catalogo_handler(request):
+    if request.method == 'POST':
+        genere = request.POST.get('generi')
+        films = Film.objects.values('titolo','regista').filter(genere=Genere.objects.get(nome=genere))
+    generi = Genere.objects.all()
+    return render(request,'catalogo_filtrato.html',{'genere': genere, 'generi': generi, 'films': films})

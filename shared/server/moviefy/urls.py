@@ -10,5 +10,7 @@ urlpatterns = [
     url(r'^gestione-generi/', 'moviefy.views.gestione_generi_handler'),
     url(r'^inserisci-genere/', 'moviefy.views.inserisci_genere_handler'),
     url(r'^salva-genere/', 'moviefy.views.salva_genere_handler'),
+    url(r'^catalogo-film/', 'moviefy.views.catalogo_film_handler'),
+    url(r'filtra-catalogo/', 'moviefy.views.filtra_catalogo_handler'),
     url(r'', 'moviefy.views.index'),
 ]

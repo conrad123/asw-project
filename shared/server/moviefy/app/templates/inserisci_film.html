@@ -9,41 +9,41 @@
 	</head>
 	<body>
 		<div class="container">
-		<div style="padding-top:10px">
-		<a href="/">
-			<button type="button" class="btn btn-primary btn-lg"><span class="fui-home"></span></button>
-		</a>
-		</div>
-		<div class="row">
-        <div class="col-md-12">
-          <h4>Inserisci Film</h4>
-          <form class="form-inline" role="form" action="/salva-film/" method="post">
-          	{% csrf_token %}
-            <div class="form-group">
-              <label class="sr-only" for="titolo">Titolo</label>
-              <input type="text" class="form-control" id="titolo" name="titolo" placeholder="Titolo">
+            <div style="padding-top:10px">
+                <a href="/">
+                    <button type="button" class="btn btn-primary btn-lg"><span class="fui-home"></span></button>
+                </a>
             </div>
-            <div class="form-group">
-              <label class="sr-only" for="regista">Regista</label>
-              <input type="text" class="form-control" id="regista" name="regista" placeholder="Regista">
+            <div class="row">
+                <div class="col-md-12">
+                  <h4>Inserisci Film</h4>
+                  <form class="form-inline" role="form" action="/salva-film/" method="post">
+                      {% csrf_token %}
+                      <div class="form-group">
+                          <label class="sr-only" for="titolo">Titolo</label>
+                          <input type="text" class="form-control" id="titolo" name="titolo" placeholder="Titolo">
+                      </div>
+                      <div class="form-group">
+                          <label class="sr-only" for="regista">Regista</label>
+                          <input type="text" class="form-control" id="regista" name="regista" placeholder="Regista">
+                      </div>
+                      <div class="form-group">
+                          <label class="sr-only" for="anno">Anno</label>
+                          <input type="number" class="form-control" id="anno" name="anno" placeholder="Anno">
+                      </div>
+                      <div class="form-group">
+                      </div>
+                      <div class="form-group">
+                        <select name="generi" class="form-control select select-primary" data-toggle="select">
+                            {% for genere in generi %}
+                                <option value="{{ genere.nome }}">{{ genere.nome }}</option>
+                            {% endfor %}
+                        </select>
+                      </div>
+                      <button type="submit" class="btn btn-primary">OK</button>
+                  </form>
+                </div>
             </div>
-            <div class="form-group">
-              <label class="sr-only" for="anno">Anno</label>
-              <input type="number" class="form-control" id="anno" name="anno" placeholder="Anno">
-            </div>
-            <div class="form-group">
-            </div>
-            <div class="form-group">
-        	<select name="generi" class="form-control select select-primary" data-toggle="select">
-				{% for genere in generi %}
-					<option value="{{ genere.nome }}">{{ genere.nome }}</option>
-				{% endfor %}
-			</select>
-            </div>
-            <button type="submit" class="btn btn-primary">OK</button>
-          </form>
-        </div>
-		</div>
 		</div>
 		<!-- Scripts js -->
 		<script src="../static/dist/js/vendor/jquery.min.js"></script>

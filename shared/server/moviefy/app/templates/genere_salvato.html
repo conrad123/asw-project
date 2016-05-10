@@ -3,13 +3,31 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Genere Salvato</title>
+        <link href="../static/dist/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	    <link href="../static/dist/css/flat-ui.css" rel="stylesheet">
+	    <link href="../static/docs/assets/css/demo.css" rel="stylesheet">
 	</head>
 	<body>
-		<h1>Genere inserito correttamente</h1>
-		<h2>{{ message }}</h2>
-		<h3>{{ form_fields.nome }}</h3>
-		<a href="/">Home</a>
-		<br>
-		<a href="/gestione-generi/">Torna a gestione generi</a>
+        <div class="container" style="padding-top:20px">
+            <a href="/">
+                <button type="button" class="btn btn-primary btn-lg"><span class="fui-home"></span></button>
+            </a>
+		    <h3>Genere inserito correttamente</h3>
+		    <h4>{{ message }}</h4>
+            <div>
+                <dl class="palette palette-turquoise">
+                    <dt style="font-size:20px">{{ form_fields.nome }}</dt>
+                </dl>
+            </div>
+            <div align="center" style="padding-top:5px">
+                <a href="/inserisci-genere/">
+                    <button type="button" class="btn btn-success btn-hg">Inserisci un altro genere</button>
+                </a>
+            </div>
+		</div>
+        <!-- Scripts js -->
+		<script src="../static/dist/js/vendor/jquery.min.js"></script>
+		<script src="../static/dist/js/flat-ui.min.js"></script>
+		<script src="../static/docs/assets/js/application.js"></script>
 	</body>
 </html>

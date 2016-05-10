@@ -9,26 +9,26 @@
 	</head>
 	<body>
         <div class="container">
-		<div style="padding-top:10px">
-		<a href="/">
-			<button type="button" class="btn btn-primary btn-lg"><span class="fui-home"></span></button>
-		</a>
-		</div>
-		<div class="row">
-        <div class="col-md-12">
-          <h4>Inserisci Genere</h4>
-          <p><b>Form non valida.</b></p>
-          <p>Ricorda che il campo Nome deve essere inserito.</p>
-          <form class="form-inline" role="form" action="/salva-genere/" method="post">
-          	{% csrf_token %}
-            <div class="form-group">
-              <label class="sr-only" for="nome">Nome</label>
-              <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
+            <div style="padding-top:10px">
+                <a href="/">
+                    <button type="button" class="btn btn-primary btn-lg"><span class="fui-home"></span></button>
+                </a>
             </div>
-            <button type="submit" class="btn btn-primary">OK</button>
-          </form>
-        </div>
-		</div>
+            <div class="row">
+                <div class="col-md-12">
+                      <h4>Inserisci Genere</h4>
+                      <p><b>Form non valida.</b></p>
+                      <p>Ricorda che il campo Nome deve essere inserito.</p>
+                          <form class="form-inline" role="form" action="/salva-genere/" method="post">
+                              {% csrf_token %}
+                              <div class="form-group">
+                                  <label class="sr-only" for="nome">Nome</label>
+                                  <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
+                              </div>
+                              <button type="submit" class="btn btn-primary">OK</button>
+                          </form>
+                </div>
+            </div>
 		</div>
     	<!-- Scripts js -->
 		<script src="../static/dist/js/vendor/jquery.min.js"></script>

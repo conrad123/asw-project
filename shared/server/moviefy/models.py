@@ -17,6 +17,8 @@ class Film(models.Model):
     regista = models.CharField(max_length=30)
     anno = models.IntegerField(validators=[MaxValueValidator(99999), MinValueValidator(1890)])
     genere = models.ForeignKey(Genere, on_delete=models.CASCADE)
+    class Meta:
+        unique_together = ['titolo','regista','anno','genere']
 
     @classmethod
     def create(cls,titolo,regista,anno,genere):

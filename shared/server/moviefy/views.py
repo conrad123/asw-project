@@ -1,16 +1,12 @@
 # -*- coding: utf-8 -*-
-from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render
 from moviefy.forms import SalvaFilmForm,SalvaGenereForm
 from moviefy.models import Film,Genere
+from django.db import IntegrityError
 
 
 def index(request):
     return render(request,'index.html')
-
-
-def gestione_film_handler(request):
-    return render(request,'gestione_film.html')
 
 
 def inserisci_film_handler(request):
@@ -24,16 +20,16 @@ def salva_film_handler(request):
         if form.is_valid():
             form_fields = form.cleaned_data
             genere = request.POST.get('generi')
-            film = Film.create(form_fields['titolo'],form_fields['regista'],form_fields['anno'], Genere.objects.get(nome=genere))
+            try:
+                film = Film.create(form_fields['titolo'],form_fields['regista'],form_fields['anno'], Genere.objects.get(nome=genere))
+            except IntegrityError as erorr:
+                message = 'Il film era già presente nel database, quindi non è stato duplicato.'
+                return render(request,'film_salvato.html',{'form_fields': form_fields, 'genere': genere, 'message': message})
             return render(request,'film_salvato.html',{'form_fields': form_fields, 'genere': genere})
     else:
         form = SalvaFilmForm()
     generi = Genere.objects.all()
     return render(request,'inserisci_film_form_non_valida.html',{'form': form, 'generi': generi})
-
-
-def gestione_generi_handler(request):
-    return render(request,'gestione_generi.html')
 
 
 def inserisci_genere_handler(request):
@@ -45,7 +41,11 @@ def salva_genere_handler(request):
         form = SalvaGenereForm(request.POST)
         if form.is_valid():
             form_fields = form.cleaned_data
-            genere = Genere.create(form_fields['nome'])
+            try:
+                genere = Genere.create(form_fields['nome'])
+            except IntegrityError as error:
+                message = 'Il genere era già presente nel database, quindi non è stato duplicato.'
+                return render(request,'genere_salvato.html',{'form_fields': form_fields, 'message': message})
             return render(request,'genere_salvato.html',{'form_fields': form_fields})
     else:
         form = SalvaGenereForm()

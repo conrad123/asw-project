@@ -21,7 +21,7 @@ def salva_film_handler(request):
             form_fields = form.cleaned_data
             genere = request.POST.get('generi')
             try:
-                film = Film.create(form_fields['titolo'],form_fields['regista'],form_fields['anno'], Genere.objects.get(nome=genere))
+                film = Film.create(form_fields['titolo'].upper(),form_fields['regista'].upper(),form_fields['anno'], Genere.objects.get(nome=genere))
             except IntegrityError as erorr:
                 message = 'Il film era già presente nel database, quindi non è stato duplicato.'
                 return render(request,'film_salvato.html',{'form_fields': form_fields, 'genere': genere, 'message': message})
@@ -42,7 +42,7 @@ def salva_genere_handler(request):
         if form.is_valid():
             form_fields = form.cleaned_data
             try:
-                genere = Genere.create(form_fields['nome'])
+                genere = Genere.create(form_fields['nome'].upper())
             except IntegrityError as error:
                 message = 'Il genere era già presente nel database, quindi non è stato duplicato.'
                 return render(request,'genere_salvato.html',{'form_fields': form_fields, 'message': message})

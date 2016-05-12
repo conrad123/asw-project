@@ -40,10 +40,17 @@
                             {% endfor %}
                         </select>
                       </div>
-                      <button type="submit" class="btn btn-primary">OK</button>
+                      {% if generi %}
+                        <button type="submit" class="btn btn-primary">OK</button>
+                      {% else %}
+                        <button type="button" class="btn btn-primary" disabled="disabled">OK</button>
+                      {% endif %}
                   </form>
                 </div>
             </div>
+            {% if not generi %}
+            <h4>Non puoi ancora inserire un film nel catalogo perche' ancora non e' stato inserito alcun genere.</h4>
+            {% endif %}
 		</div>
 		<!-- Scripts js -->
 		<script src="../static/dist/js/vendor/jquery.min.js"></script>

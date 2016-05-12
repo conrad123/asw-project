@@ -61,6 +61,6 @@ def catalogo_film_handler(request):
 def filtra_catalogo_handler(request):
     if request.method == 'POST':
         genere = request.POST.get('generi')
-        films = Film.objects.values('titolo','regista').filter(genere=Genere.objects.get(nome=genere))
+        films = Film.objects.values('titolo','regista','anno').filter(genere=Genere.objects.get(nome=genere))
     generi = Genere.objects.all()
     return render(request,'catalogo_filtrato.html',{'genere': genere, 'generi': generi, 'films': films})

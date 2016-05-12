@@ -15,12 +15,9 @@ Requisiti
 3) Collegarsi al server
 	Una volta che la generazione dell'ambiente è completa, digitare 'vagrant ssh server' per collegarsi al terminale del nodo server. Una volta nel terminale del nodo server far partitre il server digitando './server/runserver.sh'.
 	Andare, dal proprio browser, all'indirizzo 10.10.10.10:8080 per utilizzare la web app d'esempio.
-	
 	NOTA PER WINDOWS: se il proprio sistema non possiede un client ssh in %PATH%, il comando 'vagrant ssh' potrebbe non avere effetto. In tal caso è necessario scaricare un client ssh. E' consigliabile usare il software Putty collegandosi al nodo server all'indirizzo '127.0.0.1:2211' con username: vagrant e password: vagrant.
 
 Guida rapida
 	- 'vagrant up' da terminale nella cartella della repository.
-
 	- 'vagrant ssh server' da terminale e './server/runserver.sh' da terminale del nodo server generato.
-
 	- '10.10.10.10:8080' dal proprio browser per utilizzare la web app d'esempio.

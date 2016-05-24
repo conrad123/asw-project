@@ -9,3 +9,12 @@ psycopg2
 
 # Database config loader
 dj-database-url
+
+# Install rest-api framework
+djangorestframework
+
+# Additional packages for rest-api framework
+markdown
+django-filter
+django-crispy-forms
+django-guardian

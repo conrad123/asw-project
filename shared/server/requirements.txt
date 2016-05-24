@@ -18,3 +18,4 @@ markdown
 django-filter
 django-crispy-forms
 django-guardian
+djangorestframework-xml

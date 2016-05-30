@@ -44,5 +44,6 @@ Per accedere a tali risorse, in formato json o xml, utilizzare un qualsiasi clie
 * Cancellare il Genere con chiave primaria 3: ```curl -X DELETE http://10.10.10.10:8080/api-rest/generi/3/```
 * Creare un nuovo Genere: ```curl -X POST -H "Content-Type: application/json" http://10.10.10.10:8080/api-rest/generi/ -d '{"nome":"HORROR"}'```
 * Aggiornare un Genere con chiave primaria 5: ```curl -X PUT -H "Content-Type: application/json" http://10.10.10.10:8080/api-rest/generi/5/ -d '{"nome":"DRAMMATICO"}'```
+
 ### NOTA PER WINDOWS
 Se il sistema dà errori di parsing json quando si vuole creare o aggiornare una risorsa, scrivere il json da passare in POST o PUT come segue: ```... -d "{\"nome\":\"DRAMMATICO\"}"```

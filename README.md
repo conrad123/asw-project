@@ -29,17 +29,10 @@ Se il proprio sistema non possiede un client ssh in %PATH%, il comando 'vagrant 
 La web app d'esempio fornita offre una API REST per l'ottenimento, cancellazione, creazione e aggiornamento delle sue risorse.
 Per accedere a tali risorse, in formato json o xml, utilizzare un qualsiasi client REST come ad esempio Curl o Httpie sul proprio sistema.
 
-### Accedere alla lista dei Generi e dei Film
-* ```http://10.10.10.10:8080/api-rest/generi/```
-* ```http://10.10.10.10:8080/api-rest/film/```
-
-### Accedere a un Genere o un Film specifico
-* ```http://10.10.10.10:8080/api-rest/generi/<id>/```
-* ```http://10.10.10.10:8080/api-rest/film/<id>/```
 
 ### Alcuni esempi di utilizzo delle API REST (client REST usato negli esempi: Curl)
 * Ottenere la lista dei Generi in formato json: ```curl -X GET -H "Accept: application/json" http://10.10.10.10:8080/api-rest/generi/```
-* Ottenre la lista dei Film in formato xml: ```curl -X GET -H "Accept: application/xml" http://10.10.10.10:8080:api-rest/film/```
+* Ottenre la lista dei Film in formato xml: ```curl -X GET -H "Accept: application/xml" http://10.10.10.10:8080/api-rest/film/```
 * Ottenere il Film con chiave primaria 1 in formato json: ```curl -X GET -H "Accept: application/json" http://10.10.10.10:8080/api-rest/film/1/```
 * Cancellare il Genere con chiave primaria 3: ```curl -X DELETE http://10.10.10.10:8080/api-rest/generi/3/```
 * Creare un nuovo Genere: ```curl -X POST -H "Content-Type: application/json" http://10.10.10.10:8080/api-rest/generi/ -d '{"nome":"HORROR"}'```
@@ -47,3 +40,11 @@ Per accedere a tali risorse, in formato json o xml, utilizzare un qualsiasi clie
 
 ### NOTA PER WINDOWS
 Se il sistema dà errori di parsing json quando si vuole creare o aggiornare una risorsa, scrivere il json da passare in POST o PUT come segue: ```... -d "{\"nome\":\"DRAMMATICO\"}"```
+
+### Accedere alla lista dei Generi e dei Film
+* ```http://10.10.10.10:8080/api-rest/generi/```
+* ```http://10.10.10.10:8080/api-rest/film/```
+
+### Accedere a un Genere o un Film specifico
+* ```http://10.10.10.10:8080/api-rest/generi/<id>/```
+* ```http://10.10.10.10:8080/api-rest/film/<id>/```

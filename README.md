@@ -28,7 +28,9 @@ Se il proprio sistema non possiede un client ssh in %PATH%, il comando 'vagrant 
 ## API REST
 La web app d'esempio fornita offre una API REST per l'ottenimento, cancellazione, creazione e aggiornamento delle sue risorse.
 Per accedere a tali risorse, in formato json o xml, utilizzare un qualsiasi client REST come ad esempio Curl o Httpie sul proprio sistema.
-NB: Se si è installato l'ambiente prima dell'introduzione al supporto delle chiamate REST è necessario creare di nuovo l'ambiente da zero (come sopra indicato), riscaricando la repository dal momento che è presente nuovo codice e nuovo software installato in fase di provision rispetto alla versione precedente.
+
+###NB 
+Se si è installato l'ambiente prima dell'introduzione al supporto delle chiamate REST è necessario creare di nuovo l'ambiente da zero (come sopra indicato), riscaricando la repository dal momento che è presente nuovo codice e nuovo software installato in fase di provision rispetto alla versione precedente.
 
 
 ### Alcuni esempi di utilizzo delle API REST (client REST usato negli esempi: Curl)

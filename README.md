@@ -28,6 +28,7 @@ Se il proprio sistema non possiede un client ssh in %PATH%, il comando 'vagrant 
 ## API REST
 La web app d'esempio fornita offre una API REST per l'ottenimento, cancellazione, creazione e aggiornamento delle sue risorse.
 Per accedere a tali risorse, in formato json o xml, utilizzare un qualsiasi client REST come ad esempio Curl o Httpie sul proprio sistema.
+NB: Se si è installato l'ambiente prima dell'introduzione al supporto delle chiamate REST è necessario creare di nuovo l'ambiente da zero (come sopra indicato), riscaricando la repository dal momento che è presente nuovo codice e nuovo software installato in fase di provision rispetto alla versione precedente.
 
 
 ### Alcuni esempi di utilizzo delle API REST (client REST usato negli esempi: Curl)
@@ -41,10 +42,3 @@ Per accedere a tali risorse, in formato json o xml, utilizzare un qualsiasi clie
 ### NOTA PER WINDOWS
 Se il sistema dà errori di parsing json quando si vuole creare o aggiornare una risorsa, scrivere il json da passare in POST o PUT come segue: ```... -d "{\"nome\":\"DRAMMATICO\"}"```
 
-### Accedere alla lista dei Generi e dei Film
-* ```http://10.10.10.10:8080/api-rest/generi/```
-* ```http://10.10.10.10:8080/api-rest/film/```
-
-### Accedere a un Genere o un Film specifico
-* ```http://10.10.10.10:8080/api-rest/generi/<id>/```
-* ```http://10.10.10.10:8080/api-rest/film/<id>/```
